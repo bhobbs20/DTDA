@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for task in all_tasks %}
+        <h3>{{ task.title }}</h3>
+        <hr>
+        <p>{{ task.memo }}</p>
+        <hr>
+        <p><span>Due Date:</span>{{ task.due_date }}</p>
+        <hr>
+        <h3> {{ task.important }}</h3>
+        {{ task.user }}
+    {% endfor %}
+{% endblock %}
