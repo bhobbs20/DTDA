@@ -1,15 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for task in all_tasks %}
-        <h3>{{ task.title }}</h3>
-        <hr>
-        <p>{{ task.memo }}</p>
-        <hr>
-        <p><span>Due Date:</span>{{ task.due_date }}</p>
-        <hr>
-        <h3> {{ task.important }}</h3>
-        <a href="{% url 'tasks:viewtodo' task.id %}">View</a>
-        {{ task.user }}
-    {% endfor %}
+    <div class="container">
+        <h2 class="text-center font-weight-bold mt-5 mb-4">{{ user.username }}'s Tasks</h2>
+        <div class="row justify-content-center">
+            {% for task in all_tasks %}
+            <div class="col-lg-6">
+                <div class="card mt-4 mb-4">
+                    <div class="card-body">
+                        <a href="{% url 'tasks:viewtodo' task.id %}">
+                        <h3 class="card-title">{{ task.title }}</h3>
+                        </a>
+                        <p class="card-text">{{ task.memo }}</p>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p><span>Due Date:</span>{{ task.due_date }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+
+
+
 {% endblock %}

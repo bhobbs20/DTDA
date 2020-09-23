@@ -3,16 +3,19 @@
 {% block content %}
     <div class="row justify-content-center mt-5">
         <div class="col-md-10">
-            <h1>Completed Todos</h1>
+            <h1 class="text-center">Completed Todos</h1>
         </div>
     </div>
     <div class="row justify-content-center mt-5">
-        <div class="col-md-10">
-            <div class="list-group">
-                {% for todo in todos %}
-                    <a href="{% url 'tasks:viewtodo' todo.id %}" class="list-group-item list-group-item-action{% if todo.important %} list-group-item-danger{% endif %}"><b>{{ todo.title }}</b> - Completed {{ todo.date_completed|date:'M j Y H:i' }}</a>
-                {% endfor %}
+        {% for task in todos %}
+        <div class="col-md-6">
+            <div class="card mt-3 mb-4">
+                <div class="card-body">
+                    <h3 class="card-text">{{ task.title }}</h3>
+                    <p class="card-text text-muted">Completed on:  {{  task.date_completed|date:'M j Y H:i' }}</p>
+                </div>
             </div>
         </div>
+     {% endfor %}
     </div>
 {% endblock %}

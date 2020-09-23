@@ -1,19 +1,26 @@
+
 {% extends 'base.html' %}
+
 
 {% block content %}
 
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <form method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Create Todo</button>
-                </form>
-
+    <div class="container ">
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <div class="card mt-5 mb-5">
+                    <h2 class="card-text text-center mt-4 mb-4">Create Task</h2>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-green darken-1">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
 {% endblock %}
