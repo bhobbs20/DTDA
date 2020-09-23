@@ -4,6 +4,8 @@ from . import views
 app_name = 'main'
 
 urlpatterns = [
+
+    # HOME
     path('', views.index, name="index"),
 
     # AUTH
