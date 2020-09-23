@@ -9,6 +9,7 @@
         <p><span>Due Date:</span>{{ task.due_date }}</p>
         <hr>
         <h3> {{ task.important }}</h3>
+        <a href="{% url 'tasks:viewtodo' task.id %}">View</a>
         {{ task.user }}
     {% endfor %}
 {% endblock %}
